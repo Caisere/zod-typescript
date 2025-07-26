@@ -15,8 +15,12 @@ const UserDetailsSchema = z.object({
 type User = z.infer<typeof UserDetailsSchema>
 
 
+type UseformValZodProps = {
+    user?: User
+}
 
-function UseformValZod() {
+// UseFormValidation component manages the creation and updating of user details 
+function UseformValZod({ user }: UseformValZodProps) {
     // managing the form state using useform hook 
     const {
         register, 
@@ -28,15 +32,27 @@ function UseformValZod() {
         reset, 
         setError
     } = useForm<User>({
-        defaultValues: {
-            firstName: 'Omoshola',
-            lastName: 'E'
-        },
+        defaultValues: user ? {
+            ...user
+        } : undefined,
         // connecting the zod schema and the useform hook
         resolver: zodResolver(UserDetailsSchema)
     })
 
     async function onHandleSubmit(data: User): Promise<void> {
+        if(user) {
+            try {
+                // make an API call to update user details using the user id
+                await new Promise((resolve) => setTimeout(resolve, 3000));
+                reset();
+                console.log('Form Successfully Updated', data)
+            } catch {
+                setError('root', {
+                    message: `Something went wrong, please try again later`
+                })
+            }
+        } 
+
         try {
             await new Promise((resolve) => setTimeout(resolve, 2000));
             reset();
