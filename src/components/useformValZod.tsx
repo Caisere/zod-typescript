@@ -50,12 +50,13 @@ function UseformValZod() {
     
     return (
         // managing the form and validating the form inputs using zod for cleaner code.
-        <>
-            <h1>Use Form Validation with Zod</h1>
-            <form onSubmit={handleSubmit(onHandleSubmit)}>
-                <div>
+        <div className="flex flex-col px-12 py-8 gap-4 shadow-xl rounded-lg">
+            <h1 className="text-center text-violet-900 font-semibold">Use Form Validation with Zod</h1>
+            <form className="flex flex-col gap-2" onSubmit={handleSubmit(onHandleSubmit)}>
+                <div className="inputCon">
                     <label htmlFor="firstName">First Name</label>
-                    <input 
+                    <input
+                        className='placeholder:text-stone-100 text-sm' 
                         type="text" 
                         id="firstName" 
                         {...register('firstName')} 
@@ -64,9 +65,10 @@ function UseformValZod() {
                     {errors?.firstName && <p style={{color: 'red'}}>{errors?.firstName?.message}</p>}
                 </div>
 
-                <div>
+                <div className="inputCon">
                     <label htmlFor="lastName">Last Name</label>
-                    <input 
+                    <input
+                        className='placeholder:text-stone-100 text-sm' 
                         type="text" 
                         id="lastName" 
                         {...register('lastName')} 
@@ -75,9 +77,10 @@ function UseformValZod() {
                     {errors?.lastName && <p style={{color: 'red'}}>{errors?.lastName?.message}</p>}
                 </div>
 
-                <div>
+                <div className="inputCon">
                     <label htmlFor="email">Email</label>
-                    <input 
+                    <input
+                        className='placeholder:text-stone-100 text-sm' 
                         type="email" 
                         id="email" 
                         {...register('email')} 
@@ -85,9 +88,10 @@ function UseformValZod() {
                     {errors?.email && <p style={{color: 'red'}}>{errors?.email?.message}</p>}
                 </div>
 
-                <div>
+                <div className="inputCon">
                     <label htmlFor="password">Password</label>
-                    <input 
+                    <input
+                        className='placeholder:text-stone-100 text-sm' 
                         type="password" 
                         id="password" 
                         {...register('password')}
@@ -95,9 +99,9 @@ function UseformValZod() {
                     {errors?.password && <p style={{color: 'red'}}>{errors?.password?.message}</p>}
                 </div>
 
-                <button disabled={isSubmitting} type="submit">{isSubmitting ? 'Submitting' : "Submit"}</button>
+                <button className="bg-violet-500 text-stone-200 py-2 rounded-sm hover:bg-violet-700 transition-all duration-300 mt-2" disabled={isSubmitting} type="submit">{isSubmitting ? 'Submitting' : "Submit"}</button>
             </form>
-        </>
+        </div>
     )
 }
 

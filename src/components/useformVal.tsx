@@ -32,14 +32,15 @@ const UseFormValidation= () => {
     }
 
     return (
-        <>
-            <h1>Use Form Validation</h1>
-            <form onSubmit={handleSubmit(handleFormSubmit)}>
-                <div>
-                    <label htmlFor="firstName">First Name</label>
-                    <input 
+        <div className="flex flex-col px-12 py-8 gap-4 shadow-xl rounded-lg">
+            <h1 className="text-center text-violet-900 font-semibold">Use Form Validation</h1>
+            <form onSubmit={handleSubmit(handleFormSubmit)} className="flex flex-col gap-2">
+                <div className="inputCon">
+                    <label htmlFor="firstname">First Name</label>
+                    <input
+                        className='placeholder:text-stone-100 text-sm' 
                         type="text" 
-                        id="firstName" 
+                        id="firstname" 
                         {...register('firstName', {
                             required: 'First Name is required',
                             minLength: {
@@ -52,11 +53,12 @@ const UseFormValidation= () => {
                     {errors?.firstName && <p style={{color: 'purple'}}>{errors?.firstName?.message}</p>}
                 </div>
 
-                <div>
-                    <label htmlFor="lastName">Last Name</label>
-                    <input 
+                <div className="inputCon">
+                    <label htmlFor="lastname">Last Name</label>
+                    <input
+                        className='placeholder:text-stone-100 text-sm' 
                         type="text" 
-                        id="lastName" 
+                        id="lastname" 
                         {...register('lastName', {
                             required: 'Last Name is required',
                             minLength: {
@@ -69,11 +71,12 @@ const UseFormValidation= () => {
                     {errors?.lastName && <p style={{color: 'purple'}}>{errors?.lastName?.message}</p>}
                 </div>
 
-                <div>
-                    <label htmlFor="email">Email</label>
-                    <input 
+                <div className="inputCon">
+                    <label htmlFor="email-add">Email</label>
+                    <input
+                        className='placeholder:text-stone-100 text-sm' 
                         type="email" 
-                        id="email" 
+                        id="email-add" 
                         {...register('email', {
                             required: 'Email is required',
                             pattern: {
@@ -86,11 +89,12 @@ const UseFormValidation= () => {
                     {errors?.email && <p style={{color: 'purple'}}>{errors?.email?.message}</p>}
                 </div>
 
-                <div>
-                    <label htmlFor="password">Password</label>
-                    <input 
+                <div className="inputCon">
+                    <label htmlFor="pass-word">Password</label>
+                    <input
+                        className='placeholder:text-stone-100 text-sm' 
                         type="password" 
-                        id="password" 
+                        id="pass-word" 
                         {...register('password', {
                             required: 'Password is required',
                             minLength: {
@@ -103,9 +107,9 @@ const UseFormValidation= () => {
                     {errors?.password && <p style={{color: 'purple'}}>{errors?.password?.message}</p>}
                 </div>
 
-                <button disabled={isSubmitting} type="submit">{isSubmitting ? 'Submitting details' : "Submit"}</button>
+                <button className="bg-violet-500 text-stone-200 py-2 rounded-sm hover:bg-violet-700 transition-all duration-300 mt-2" disabled={isSubmitting} type="submit">{isSubmitting ? 'Submitting details' : "Submit"}</button>
             </form>
-        </>
+        </div>
     )
 }
 

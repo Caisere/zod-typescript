@@ -1,3 +1,28 @@
+@import 'tailwindcss';
+
+@layer base{
+    body {
+        color: var(--color-stone-600);
+    }
+
+    input {
+        padding: 0.4rem .6rem;
+        border: none;
+        outline: none;
+        background-color: var(--color-stone-200);
+        border-radius: 6px;
+        width: 100%;
+    }
+}
+
+@layer components {
+    .inputCon {
+        display: flex;
+        flex-direction: column;
+        gap: .2rem;
+    }
+}
+
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
