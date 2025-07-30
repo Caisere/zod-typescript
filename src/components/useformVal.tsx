@@ -7,7 +7,7 @@ type FormFeilds = {
     password: string;
 }
 
-const UseFormValidation= () => {
+const UseFormValidation = () => {
     const {
         register, 
         handleSubmit, 
