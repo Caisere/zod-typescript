@@ -1,4 +1,4 @@
-import type { User } from "../type";
+import type { User } from "../types";
 
 export const existingUser: User = {
     id: 1,
